@@ -1,0 +1,42 @@
+
+
+Una vez que hemos comprobado que tenemos un directorio en "nuestro home" que forma parte de la variable PATH, podemos crear un archivo de texto dentro de dicho directorio, con el nombre wav2mp3 (o cualquier otro que se os ocurra siempre que sea coherente con el resto de explicaciones del tutorial) y con el siguiente contenido:
+
+#!/bin/bash
+#
+# wavmp3
+#
+for i in *.wav; do
+lame -h -b 320 "$i" "${i%.wav}.mp3"
+done
+
+El comando que realmente hace la conversión es lame. En este caso, decimos que convierta a mp3 con buena calidad (opción -h) y a 320 kps (opción -b 320). Lo bueno de este script es que nos convierte de una vez todos los archivos wav que tengamos en el directorio donde lo apliquemos, como veremos en el punto 4.
+
+3. Permiso de ejecución
+
+Debemos dar a wav2mp3 permiso de ejecución. Botón derecho sobre el archivo, propiedades, permisos, permitir ejecutar el archivo como un programa. Desde la terminal lo podemos hacer con el comando:
+
+chmod +x ~/.mis-scripts/*
+
+4. Uso de wav2mp3
+
+Para usar wav2mp3 abrimos una terminal en la localización donde tenemos los wav que queremos convertir a mp3. Para ello, si tenemos instalado nautilus-open-terminal, simplemente tendremos que navegar gráficamente hasta la carpeta que contiene los wavs, pulsar botón derecho dentro de la misma y "Abrir en un terminal".
+
+Ahora escribimos:
+
+wav2mp3
+
+Y voilà, en un rato más o menos largo todos nuestros archivos de audio en wav serán convertidos a mp3 de alta calidad , en el mismo directorio, manteniendo su nombre y cambiando la extensión a mp3.
+
+5. Y ogg?
+
+Bueno, habrá que hacer otro comando wav2ogg. Para ello podemos usar este script:
+
+#!/bin/bash
+#
+# wavogg
+#
+for i in *.wav; do
+oggenc "$i" -q 6 -o "${i%.wav}.ogg"
+done
+
