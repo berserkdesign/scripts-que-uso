@@ -1,4 +1,4 @@
-# scripts-que-uso
+# scripts que uso
 Script para GNU/Linux en Bash que me han sido útiles
 
 1. Cómo generar tus propios scripts
