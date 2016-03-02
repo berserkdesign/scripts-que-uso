@@ -39,3 +39,5 @@ En el siguiente logueo del usuario (o arranque del ordenador) comprobamos otra v
 
 Bueno, pues ahora todos los scripts de bash ejecutables que estén en este directorio se pueden ejecutar simplemente invocando el nombre del archivo.
 
+
+chmod +x /usr/local/bin/*
