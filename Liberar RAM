@@ -1,0 +1,24 @@
+ Se loguean como root y:
+
+nano /usr/local/bin/freeram (asi le pongo yo, ustedes le ponen como quieren, pepe, luis, liberaram)
+
+y el contenido será:
+
+#!/bin/sh
+# Author: SynFLag
+# Licence: GNU GPLv3
+# Freeram is a script to clean the RAM caches
+sync ; echo 3 > /proc/sys/vm/drop_caches ; echo "RAM Liberada"
+
+exit 0
+
+Salvan con ctrl+o y salen con crtl+x, luego, como root nuevamente:
+
+chmod +x /usr/local/bin/freeram
+
+Ahora, desde cualquier terminal, ponen:
+
+$ sudo freeram (dado que necesita permisos de root), y listo, liberan la ram cuando desean o para los que no usan sudo, como yo
+$ su -c "freeram"
+
+Esto aplica a cualquier distro Linux con kernel 2.6.16 o superior.
